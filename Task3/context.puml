@@ -1,0 +1,18 @@
+@startuml
+title "Умный дом" Context Diagram
+
+top to bottom direction
+
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+
+Person(user, "Пользователь", "Пользователь системы")
+System(SmartHome, "Умный дом", "Система управления устройствами")
+
+System_Ext(door, "Интеллектуальный домофон", "Видеодомофон — открытие по звонку и система распознования лиц")
+System_Ext(barrier, "Интеллектуальный шлагбаум", "Управления шлагбаумом и система распознования номеров авто")
+
+Rel(user, SmartHome, "Взаимодействие с системой через приложение")
+Rel(SmartHome,door, "Управление дверью")
+Rel(SmartHome,barrier, "Управление шлагбаумом")
+
+@enduml
